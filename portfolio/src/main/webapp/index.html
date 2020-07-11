@@ -41,7 +41,13 @@
       <p>I have amount of other hobbies, and I can play the violin as well. Hope We can be friends!</p>
       <img src="images/cat.jpg"/>
       <hr />
-      <button onclick="addComments()">Comment</button>
+      <form action="/data" method="POST">
+        <p>Have something to comment?</p>
+        <textarea name="comment-input" style="width:500px; height:20px">type here...</textarea>
+        <input type="submit" value="OK"/>
+      </form>
+      <br />
+      <button onclick="seeComments()">Display Comments</button>
       <div id="comment-container"></div>
     </div>
   </body>
