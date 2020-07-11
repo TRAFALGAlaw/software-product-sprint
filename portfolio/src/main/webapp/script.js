@@ -17,7 +17,7 @@
  */
 function addRandomGreeting() {
   const greetings =
-      ['Hello world!', '¡Hola Mundo!', '你好，世界！', 'Bonjour le monde!'];
+      ['崔胜澈！', '尹净汉！', '洪知秀！', '文俊辉！', '权顺荣！', '全圆佑！', '李知勋！', '徐明浩！', '金珉奎！', '李硕珉！', '夫胜宽！', '崔瀚率！', '李灿！'];
 
   // Pick a random greeting.
   const greeting = greetings[Math.floor(Math.random() * greetings.length)];
