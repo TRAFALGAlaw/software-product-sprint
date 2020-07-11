@@ -29,6 +29,6 @@ function addRandomGreeting() {
 
 async function addComments(){
     const response = await fetch('/data');
-    const data = await response.text();
+    const data = await response.json();
     document.getElementById('comment-container').innerText = data;
 }
