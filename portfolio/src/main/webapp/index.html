@@ -2,17 +2,53 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>My Portfolio</title>
+    <title>yzq's Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
   </head>
   <body>
     <div id="content">
-      <h1>My Portfolio</h1>
-      <p>This is my portfolio.</p>
-      <p>Click here to get a random message:</p>
-      <button onclick="addRandomGreeting()">Hello</button>
+      <h1>yzq's Portfolio</h1>
+      <div align = "middle"><img src="images/3.jpg" width="300" hight="300"/></div>
+      <p>Hi everyone! I'm Ziqi Yuan from Tsinghua University, now studying Computer Science and Technology as well as Psychology.</p>
+      <p>In my daily life, I watch a lot of Japan animation like One Piece, read novels and particularly love Harry Potter, and I also like TV series of Korea. I believe what I love makes who I am.</p>
+      <hr />
+      <p>Below are some of the projects I've been involved in, most of which are coursework in school:</p>
+      <ul>
+          <li>TensorHero -- an APP that helps users to learn TensorFlow with efficiency and fun (Google EP Intern)</li>
+          <li>Online Chinese Chess Game (QT)</li>
+          <li>Web Crawler and News Retrieval Page (python)</li>
+          <li>Emotion analysis using CNN and RNN</li>
+          <li>Android news APP (java)</li>
+          <li>Android Strategy Game using Unity (C#)</li>
+      </ul>
+      <p>This is my 
+      <a href = "https://github.com/TRAFALGAlaw" target = "_blank">github profile</a>
+      , most of my coursework are in my Tsinghua github profile though.
+      </p>
+      <hr />
+      <p> And here're the boys I love!</p>
+      <img src="images/SVT.jpg" width="500" hight="500"/>
+      <p>SEVENTEEN is an idol team of South Korean. They have brilliant songs and perfect performance.</p>
+      <img src="images/SVT_Unity.jpg" width="500" hight="500"/>
+      <p>SEVENTEEN is famous of 'self-sufficiency' because their songs and dance are created almost by themselves.</p>
+      <img src="images/SVT_home.jpg" width="500" hight="500"/>
+      <p>Carat is SEVENTEEN's home! home! home!</p>
+      <p>Click here to know a random member's Chinese name:</p>
+      <button onclick="addRandomGreeting()">SVT❤Carat</button>
       <div id="greeting-container"></div>
+      <hr />
+      <p>I have amount of other hobbies, and I can play the violin as well. Hope We can be friends!</p>
+      <img src="images/cat.jpg"/>
+      <hr />
+      <form action="/data" method="POST">
+        <p>Have something to comment?</p>
+        <textarea name="comment-input" style="width:500px; height:20px">type here...</textarea>
+        <input type="submit" value="OK"/>
+      </form>
+      <br />
+      <button onclick="seeComments()">Display Comments</button>
+      <div id="comment-container"></div>
     </div>
   </body>
 </html>
