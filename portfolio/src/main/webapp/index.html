@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="style.css">
     <script src="script.js"></script>
   </head>
-  <body>
+  <body onload="loadPage()">
     <div id="content">
       <h1>yzq's Portfolio</h1>
       <div align = "middle"><img src="images/3.jpg" width="300" hight="300"/></div>
@@ -41,14 +41,15 @@
       <p>I have amount of other hobbies, and I can play the violin as well. Hope We can be friends!</p>
       <img src="images/cat.jpg"/>
       <hr />
-      <form action="/data" method="POST">
-        <p>Have something to comment?</p>
+      <p>Have something to comment?</p>
+      <!--<button onclick="seeComments()">Have something to say?</button>-->
+      <div id="login-url" style="display:none"></div>
+      <form action="/data" method="POST" style="display:none" id="comment-form">
         <textarea name="comment-input" style="width:500px; height:20px">type here...</textarea>
-        <input type="submit" value="OK"/>
+        <input type="submit" value="submit"/>
+        <br />
+        <div id="comment-container"></div>
       </form>
-      <br />
-      <button onclick="seeComments()">Display Comments</button>
-      <div id="comment-container"></div>
     </div>
   </body>
 </html>

@@ -27,8 +27,22 @@ function addRandomGreeting() {
   greetingContainer.innerText = greeting;
 }
 
-async function seeComments(){
-    const response = await fetch('/data');
-    const data = await response.json();
-    document.getElementById('comment-container').innerText = data;
+async function loadPage(){
+    const resp = await fetch('/login');
+    const isLogin = await resp.json();
+    if(isLogin["flag"] == "true"){
+        document.getElementById('comment-form').style.display = '';
+        const response = await fetch('/data');
+        const data = await response.json();
+        var html = '<ul>';
+        for (var i in data){
+            html += '<li>' + data[i] + '</li>';
+        }
+        html += '</ul>';
+        html += '<p>Logout <a href=\"' + isLogin["url"] + '\">here</a>.</p>';
+        document.getElementById('comment-container').innerHTML = html;
+    }else{
+        document.getElementById('login-url').style.display = '';
+        document.getElementById('login-url').innerHTML = '<p>Login <a href=\"' + isLogin["url"] + '\">here</a>.</p>';
+    }
 }

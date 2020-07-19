@@ -17,6 +17,8 @@ package com.google.sps.servlets;
 import java.io.IOException;
 import com.google.gson.Gson;
 import java.util.ArrayList;
+import com.google.appengine.api.users.UserService;
+import com.google.appengine.api.users.UserServiceFactory;
 import com.google.appengine.api.datastore.DatastoreService;
 import com.google.appengine.api.datastore.DatastoreServiceFactory;
 import com.google.appengine.api.datastore.Entity;
@@ -42,8 +44,9 @@ public class DataServlet extends HttpServlet {
     PreparedQuery results = datastore.prepare(query);
     ArrayList<String> comments = new ArrayList<>();
     for (Entity entity : results.asIterable()) {
+        String email = (String) entity.getProperty("email");
       String comment = (String) entity.getProperty("content");
-      comments.add(comment);
+      comments.add(email + ": " + comment);
     }
     response.setContentType("text/html;");
     Gson gson = new Gson();
@@ -53,9 +56,12 @@ public class DataServlet extends HttpServlet {
 
   @Override
   public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException{
+      UserService userService = UserServiceFactory.getUserService();
+      String userEmail = userService.getCurrentUser().getEmail();
       String comment = request.getParameter("comment-input");
       long timestamp = System.currentTimeMillis();
       Entity entity = new Entity("Comment");
+      entity.setProperty("email", userEmail);
       entity.setProperty("content", comment);
       entity.setProperty("timestamp", timestamp);
       DatastoreService datastore = DatastoreServiceFactory.getDatastoreService();
